@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <style>
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f4f4f4;
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(90deg, #0000007f, #3333336f);
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 5px rgb(255, 242, 0), 0 0 10px rgb(225, 255, 0), 0 0 10px rgb(234, 255, 0);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.logo:hover{
+    color: #ffd700;
+    transition: 0.7s;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+    
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+    font-size: 1.3rem;
+    transition: 0.5s;
+    transition-delay: 0.2ms;
+}
+
+/* Home Section */
+.home {
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-top: 80px; /* Adjust for fixed header */
+}
+
+.home-content {
+    max-width: 600px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.home-content p {
+    font-size: 1.2rem;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Sections */
+section {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about, .projects, .skills, .contact {
+    background: #fff;
+    box-shadow: 0 1px 3px ;
+    border-radius: 10px;
+    margin: auto;
+    padding: 2rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom:20px ;
+}
+
+.about:hover, .projects:hover, .skills:hover, .contact:hover {
+    transform: translateY(-10px);
+    
+}
+
+/* Projects Section */
+.projects .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.projects .project-item {
+    background: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    
+}
+
+.projects .project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.projects .project-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.projects .project-item p {
+    font-size: 0.9rem;
+}
+
+/* Skills Section */
+.skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skills li {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.skills li:hover {
+    background: #ffd700;
+}
+
+/* Contact Section */
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact input:focus, .contact textarea:focus {
+    border-color: #333;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact button {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contact button:hover {
+    background: #ffd700;
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #333;
+        display: none;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        text-align: center;
+        display: block;
+    }
+
+    .nav-links a:hover {
+        background: #444;
+    }
+
+    nav .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .projects .project-item {
+        width: calc(100% - 2rem);
+    }
+}
+
+/* Mobile Menu Toggle */
+nav .menu-toggle {
+    display: none;
+}
+
+nav .menu-toggle.active + .nav-links {
+    display: flex;
+}
+
+.home{
+    color: #ffd700;
+}
+h3{
+    color: #ffd700;
+}
+a{
+    color: #1c1c1c;
+    display: flex;
+   
+    text-decoration: none;
+}
+
+
+
+
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p style="color: black;">I'm a professional web developer.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Maaz Ali, a front-end developer and student at NFC University. I'm passionate about creating visually appealing and user-friendly web interfaces, and I'm skilled in HTML, CSS, and JavaScript. At NFC University, I've become known for my innovative projects and keen eye for design, always striving to push the boundaries of what's possible in web development. I balance my academic studies with hands-on experience through internships and personal projects. My commitment to learning and growing in this ever-evolving field drives me to continually hone my skills and stay ahead of the curve</p>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-list">
+            <a href="#about">
+                <div class="project-item">
+                <h3>Calculator by Java</h3>
+                <p>A Calculator that Perform basic Arthmatic operation</p>
+            </div>
+            </a>
+            <div class="project-item">
+                <h3>A glass effect Header by HTML,CSS</h3>
+                <p>A light transparent Header with black blur</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>java</li>
+            
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <script> document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for navigation links
+        const navLinks = document.querySelectorAll('nav ul li a');
+    
+        for (const link of navLinks) {
+            link.addEventListener('click', smoothScroll);
+        }
+    
+        function smoothScroll(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+    
+            window.scrollTo({
+                top: targetSection.offsetTop - 60,
+                behavior: 'smooth'
+            });
+        }
+    
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('nav .menu-toggle');
+        const navLinksContainer = document.querySelector('nav .nav-links');
+    
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+        });
+    });
+    </script>
+</body>
+</html>
